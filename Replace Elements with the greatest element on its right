@@ -1,0 +1,28 @@
+
+#Method-1 (Brute Force - Not appreciated)
+def replaceElements(arr):
+        
+        
+    n=len(arr)
+    
+    result=[]
+    for i in range(n-1):
+        temp=arr[i+1:]
+        temp=sorted(temp)
+        result.append(temp[-1])
+    result.append(-1)
+    print (result)
+
+
+arr = [17,1,18,9,11,1]
+x=replaceElements(arr)
+ 
+        
+#method 2 (One pass, O(n) time with 0(n) space)  
+
+greatest=-1
+
+for i in range(len(arr)-1,-1,-1):
+	arr[i],greatest=greatest,max(greatest,arr[i])
+
+print(arr)
