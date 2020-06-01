@@ -1,0 +1,43 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+	 Scanner scn = new Scanner(System.in);
+	 int n1 = scn.nextInt(); //Input n1
+   int n2 = scn.nextInt(); //Input n2
+
+        //n1>n2 case
+     if (n1>n2){
+        int divisor=n2;
+        int divident=n1;
+
+        while (divident % divisor != 0) {
+            int rem = divident % divisor;
+            divident = divisor;
+            divisor = rem;
+        }
+        System.out.println(divisor);
+
+        }
+        //n2>n1 case
+     else {
+            int divisor=n1;
+            int divident=n2;
+
+            while (divident % divisor != 0) {
+                int rem = divident % divisor;
+                divident = divisor;
+                divisor = rem;
+            }
+            System.out.println(divisor);
+
+        }
+        }
+        
+    }
+
+
+
