@@ -1,0 +1,50 @@
+//   n= 7
+//            *** ***
+//            **   **
+//            *     *
+//
+//            *     *
+//            **   **
+//            *** ***
+
+
+    import java.util.Scanner;
+    
+    public class Main {
+    
+        public static void main(String[] args) {
+    
+            Scanner scn = new Scanner(System.in);
+            int n = scn.nextInt(); //Input n
+            int row=1;
+            int spaces =1;
+            int stars=n/2;
+    
+            while (row<=n) {
+    
+                for (int i = 1; i<=stars ; i++) {
+                    System.out.print("*");
+                }
+                for (int i = 1; i <= spaces; i += 1) {
+                    System.out.print(" ");
+                }
+                for (int i = 1; i <= stars; i++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+    
+                if (row<=n/2){
+                    stars-=1;
+                    spaces+=2;
+            }
+                else{
+                    stars+=1;
+                    spaces-=2;
+                }
+                row+=1;
+    
+        }
+    
+        }
+        }
+    
