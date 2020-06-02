@@ -1,0 +1,51 @@
+//    n=5
+//            1
+//           121
+//          12321
+//         1234321
+//        123454321
+
+
+
+        import java.util.Scanner;
+
+        public class Main {
+
+            public static void main(String[] args) {
+
+                Scanner scn = new Scanner(System.in);
+                int n = scn.nextInt(); //Input n
+                int row=1;
+                int spaces =n-1;
+
+                while (row<=n)
+                {
+                    int numbers=1;
+                    for (int i = 1; i <= spaces; i += 1) { //number of leading spaces
+                        System.out.print(" ");
+                    }
+                    for (int i = 1; i <= row; i++) {
+                        System.out.print(numbers);
+                        numbers += 1;
+                    }
+                    numbers-=1;
+                    for (int i = 1;i<=row-1;i++){
+                        numbers-=1;
+                        System.out.print(numbers);
+                    }
+                    for (int i = 1; i <= spaces; i += 1) {
+                        System.out.print(" ");
+                    }
+                    System.out.println();
+                    spaces-=1;
+                    row+=1;
+
+            }
+
+            }
+            }
+
+
+
+
+
