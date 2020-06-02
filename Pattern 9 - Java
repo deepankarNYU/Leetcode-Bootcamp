@@ -1,0 +1,42 @@
+//    n=5
+//            1
+//           111
+//          11111
+//         1111111
+//        111111111
+
+
+        import java.util.Scanner;
+
+        public class Main {
+
+            public static void main(String[] args) {
+
+                Scanner scn = new Scanner(System.in);
+                int n = scn.nextInt(); //Input n
+                int row=1;
+                int spaces =n-1;
+                int stars=1;
+
+                while (row<=n) {
+
+                    for (int i = 1; i <= spaces; i += 1) {
+                        System.out.print(" ");
+                    }
+                    for (int i = 1; i <= stars; i++) {
+                        System.out.print("1");
+                    }
+                    for (int i = 1; i <= spaces; i += 1) {
+                        System.out.print(" ");
+                    }
+                    System.out.println();
+                    stars+=2;
+                    spaces-=1;
+                    row+=1;
+
+            }
+
+            }
+            }
+
+
