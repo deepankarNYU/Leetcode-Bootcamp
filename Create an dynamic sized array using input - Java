@@ -1,0 +1,50 @@
+
+
+import java.util.Scanner;
+
+public class Main<arr> {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+
+//        declare
+          int [] arr = null;
+//        System.out.println(arr);
+//        null print
+
+         System.out.println("Please enter the size of the array");
+         int size = scn.nextInt();
+         
+//        //allocate space
+          arr = new int[size];
+//        System.out.println(arr);
+//        [I@74a14482
+//        [ denotes array
+//        I denotes an array of integers
+
+        InputArray(arr);
+        for (int val:arr){
+            System.out.println(val);
+        }
+    }
+
+       public static int [] InputArray (int [] arr) {
+        Scanner scn = new Scanner(System.in);
+
+       int size = arr.length;
+
+        for(int i=0; i<size;i++){
+            int x = scn.nextInt();
+            arr[i]=x;
+        }
+        return arr;
+
+    }
+}
+
+
+
+
+
+
