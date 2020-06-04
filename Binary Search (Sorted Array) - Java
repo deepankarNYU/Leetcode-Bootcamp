@@ -1,0 +1,71 @@
+//Binary Search
+import java.util.Scanner;
+
+public class Main<arr> {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        
+        //Declare Array
+        int[] arr = null;
+
+        System.out.println("Please enter the size of the array");
+        int size = scn.nextInt();
+        
+        //Assign memory of the desired size to array
+        arr = new int[size];
+        
+        System.out.println("Enter the numbers in increasing order "); //Pre-requisite for Binary Search ie sorted array
+        InputArray(arr);
+
+        System.out.println("Enter the number to be searched for");
+        int search = scn.nextInt();
+
+        int ans = BinarySearch(arr,search);
+
+        if (ans==-1){
+            System.out.println("Number not found");
+        }
+        else {
+            System.out.println("Number found at position " + ans);
+        }
+        
+        }
+
+       public static int [] InputArray (int [] arr) {
+        Scanner scn = new Scanner(System.in);
+
+       int size = arr.length;
+
+        for(int i=0; i<size;i++){
+            int x = scn.nextInt();
+            arr[i]=x;
+        }
+        return arr;
+
+
+    }
+
+    public static int BinarySearch(int [] arr, int searchNumber) {
+
+        int starting = 0;
+        int ending = arr.length - 1;
+
+        while (starting <= ending) {
+            int middlePosition = starting + ((ending - 1) / 2);
+
+            if (arr[middlePosition] > searchNumber) {
+                ending = middlePosition - 1;
+            } if (arr[middlePosition] < searchNumber) {
+                starting = middlePosition + 1;
+            } if (arr[middlePosition]==searchNumber) {
+                return middlePosition;
+            }
+        }
+        return -1;
+    }
+
+}
+
+
