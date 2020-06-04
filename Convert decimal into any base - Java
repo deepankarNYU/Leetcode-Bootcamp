@@ -1,0 +1,34 @@
+
+  import java.util.Scanner;
+
+  public class Main {
+
+      public static void main(String[] args) {
+
+          Scanner scn = new Scanner(System.in);
+          int n = scn.nextInt(); //Input Number n which is a decimal
+          int b = scn.nextInt(); //Base b - base in which you need to convert it
+
+          //Program to convert a given number in any base to its decimal equivalent
+
+          int x = 0;
+          int finalAns = 0;
+
+          while (n > 0) {
+              int rem = n % b;
+              int exp = Exponent(10, x);
+              int ans = rem * exp;
+              x += 1;
+              finalAns = finalAns + ans;
+              n /= b;
+          }
+          System.out.println(finalAns);
+      }
+      private static int Exponent(int a, int b) {
+          int ans = 1;
+          for (int i = 1; i <= b; i++) {
+              ans = ans * a;
+          }
+          return ans;
+      }
+  }
