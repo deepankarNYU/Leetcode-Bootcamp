@@ -1,0 +1,48 @@
+
+
+import java.util.Scanner;
+
+public class Main<arr> {
+
+public static void main(String[] args) {
+    Scanner scn = new Scanner(System.in);
+
+    int n = scn.nextInt(); //Enter the binary representation of a decimal
+    
+    int fin = 0;
+    int x=0;
+    while(n>0){
+        int rem= n%10;
+        int ans = rem * Exponent(2,x);
+        fin = fin+ans;
+        n/=10;
+        x+=1;
+    }
+    System.out.println(fin);
+
+}
+public static int Exponent(int a,int b){
+    int ans = 1;
+    while(b>0){
+        ans=ans*a;
+        b-=1;
+    }
+    return ans;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
