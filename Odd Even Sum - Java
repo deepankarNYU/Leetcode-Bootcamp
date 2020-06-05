@@ -1,0 +1,59 @@
+//"number" will be allowed if the sum of digits which are even is divisible by 4 or sum of digits which are odd are divisible //by 3
+
+
+import java.util.Scanner;
+
+public class Main<arr> {
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt(); //Enter the number on "numbers" you want to check
+        int [] arr = new int[n];
+
+        for (int i=0; i<n;i++) {
+            int n1=scn.nextInt();
+            arr[i]=n1;
+        }
+
+        for (int val:arr) {
+
+            Allowed(val);
+        }
+    }
+
+        public static void Allowed (int a) {
+
+            int evenSum = 0;
+            int oddSum = 0;
+
+        while (a>0){
+            int digit = a%10;
+            if (digit%2==0){
+                evenSum+=digit;
+            }
+            if (digit%2!=0){
+                oddSum+=digit;
+            }
+            a/=10;
+        }
+        if (evenSum % 4 == 0 || oddSum %3==0) {
+            System.out.println("Yes");
+        }
+        else {
+            System.out.println("No");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
