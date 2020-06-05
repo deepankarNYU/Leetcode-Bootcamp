@@ -1,0 +1,84 @@
+
+import java.util.Scanner;
+//First and Last Occurence of an Element in an array
+
+
+public class Main<arr> {
+
+public static void main(String[] args) {
+
+    int[] myIntArray = {1,2,2,2,3,3,9,11,13};
+    FirstOccurence(myIntArray,2);
+    System.out.print(" , ");
+    LastOccurence(myIntArray,2);
+
+}
+public static void FirstOccurence(int [] arr,int a){
+    int low=0;
+    int high= arr.length-1;
+    int ans=-1;
+
+    while (low<=high){
+        int middle = low + (high-low)/2;
+
+        if (arr[middle] > a){
+            high=middle-1;
+        }
+        if (arr[middle]<a) {
+            low=middle+1;
+        }
+        if (arr[middle]==a){
+            ans=middle;
+            high=middle-1;
+            }
+        }
+    display(ans);
+    }
+
+    public static void LastOccurence(int [] arr,int a){
+        int low=0;
+        int high= arr.length-1;
+        int ans=-1;
+
+        while (low<=high){
+            int middle = low + (high-low)/2;
+
+            if (arr[middle] > a){
+                high=middle-1;
+            }
+            if (arr[middle]<a) {
+                low=middle+1;
+            }
+            if (arr[middle]==a){
+                ans=middle;
+                low=middle+1;
+            }
+        }
+        display(ans);
+    }
+
+
+   public static void displayArray(int [] a) {
+
+       for (int val : a) {
+           System.out.print(val);
+       }
+   }
+
+
+    public static void display(int a) {
+            System.out.print(a);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
