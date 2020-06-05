@@ -1,0 +1,60 @@
+
+
+//For every odd number row print 1 odd number of times and 
+//for every even number row  print first and last character as 1 and rest of middle characters as 0.
+
+//n = 6
+//        1
+//        11
+//        111
+//        1001
+//        11111
+//        100001
+
+import java.util.Scanner;
+
+public class Main<arr> {
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int m = scn.nextInt();
+
+        int n= m-1;
+        int zeroes=0;
+
+        for (int i=0;i<=n;i++){
+            if (i==0){
+                System.out.print(1);
+            }
+            if (i%2 !=0 ){
+                System.out.print(1);
+                for (int j=0;j<i-1;j++){
+                    System.out.print(0);
+                }
+                System.out.print(1);
+            }
+            if (i%2 ==0 && i!=0){
+                for(int j=0;j<=i;j++){
+                    System.out.print(1);
+                }
+            }
+        System.out.println();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
