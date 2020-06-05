@@ -1,0 +1,60 @@
+
+
+import java.util.Scanner;
+//Selection Sort - At every iteration,find the smallest element and keep it at it's position and then repeat for the next position onwards
+
+public class Main<arr> {
+
+public static void main(String[] args) {
+
+    int[] myIntArray = {3,2,1,5,4,8};
+    SelectionSort(myIntArray);
+    
+}
+
+public static void SelectionSort(int [] arr) {
+
+    for(int counter=0;counter<arr.length-1;counter++){
+
+        int min = counter;
+
+        for (int i=counter+1;i<=arr.length-1;i++){
+            if (arr[i]<arr[min]){
+                min=i;
+            }
+        }
+
+        int temp = arr[counter];
+        arr[counter]=arr[min];
+        arr[min]=temp;
+
+    }
+    displayArray(arr);
+}
+
+
+
+   public static void displayArray(int [] a) {
+
+       for (int val : a) {
+           System.out.print(val);
+       }
+   }
+
+
+    public static void display(int a) {
+            System.out.print(a);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
