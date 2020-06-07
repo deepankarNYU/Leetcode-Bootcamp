@@ -1,0 +1,58 @@
+
+
+import java.util.Scanner;
+
+public class Main<arr> {
+
+    public static void main(String[] args) {
+
+        int [][] arr=makeGrid();
+        displayGrid(arr);
+
+        }
+
+        public static void displayGrid(int [][] arr){
+        System.out.println("The grid is as follows");
+
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[i].length;j++){
+                System.out.print(" "+arr[i][j]);
+            }
+            System.out.println();
+        }
+        }
+
+        public static int[][] makeGrid(){
+            Scanner scn = new Scanner(System.in);
+            System.out.println("Enter the number of rows");
+            int rows = scn.nextInt();
+            int [][] arr = new int[rows][];
+
+            for (int row=0;row<rows;row++){
+                System.out.println("Enter the number of elements in row "+ row);
+                int cols=scn.nextInt();
+                arr[row]=new int[cols];
+                for (int col=0;col<cols;col++){
+                    System.out.println("Enter the elements for column" + col);
+                    int element=scn.nextInt();
+                    arr[row][col]=element;
+                }
+            }
+            return arr;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
