@@ -1,0 +1,65 @@
+//Take N (number of rows), print the following pattern (for N = 4)
+
+//0
+//1 1
+//2 3 5
+//8 13 21 34
+
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt(); //Input n
+        int rows=n+1;
+        int start=1;
+
+        for (int row=1; row<rows;row++) {
+            for (int i = 1; i <= row; i++) {
+                primeGenerator(start);
+                start+=1;
+                System.out.print('\t');
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void primeGenerator(int n){
+ // 0,1,1,2,3,5,8
+        int m=n-2;
+        int a=0;
+        int b=1;
+
+        if (n==1){
+            System.out.print("0");
+        }
+        else {
+        for (int i=0;i<m;i++){
+            int temp = a;
+            a=b;
+            b = temp+b;
+        }
+        System.out.print(b);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
