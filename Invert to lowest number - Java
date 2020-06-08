@@ -1,0 +1,55 @@
+
+//transform the initial number x to the minimum possible positive number by inverting some (possibly, zero) digits.
+//The decimal representation of the final number shouldn't start with a zero.
+//Inverting digit t means replacing it with digit 9 - t.
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        Double n = scn.nextDouble(); //Input Number n
+        ArrayList<Double> number = new ArrayList<Double>();
+
+        while (n>0){
+            double digit = (int) (n%10);
+
+            if (digit==0){
+                number.add(0.00);
+            }
+
+            else if (digit < (9-digit)){
+                number.add(digit);
+            }
+            else {
+                number.add(9-digit);
+            }
+            n/=10;
+        }
+
+        double ans=0;
+        int x=1;
+        for (int i=0;i<number.size();i++){
+            ans=ans + number.get(i)*x;
+            x=x*10;
+        }
+        System.out.println((int)ans);
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
