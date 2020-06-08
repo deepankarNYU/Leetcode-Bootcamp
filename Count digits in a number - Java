@@ -1,0 +1,25 @@
+//Take the following as input.
+//        A number
+//        A digit
+//        Write a function that returns the number of times digit is found in the number. Print the value returned.
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt(); //Input Number n
+        int digit = scn.nextInt();
+
+        int count=0;
+        while (n>0){
+            int num = n%10;
+            if (num==digit){
+                count+=1;
+            }
+            n/=10;
+        }
+        System.out.println(count);
+    }
+}
