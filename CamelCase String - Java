@@ -1,0 +1,69 @@
+package com.company;
+//Input = "IAmACompetitiveProgrammer"
+//Convert this string into list of words as it would have been in CamelCase
+//     Output:
+//        I
+//        Am
+//        A
+//        Competitive
+//        Programmer
+
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        String s = scn.next();
+        int counter=0;
+
+        while (counter<=s.length()-1){
+            if (s.charAt(counter) >= 'A' && s.charAt(counter)<='Z'){
+                System.out.print(s.charAt(counter));
+                counter+=1;
+            }
+            if (s.charAt(counter) >= 'a' && s.charAt(counter)<='z' && (counter < (s.length()-1))){
+                System.out.print(s.charAt(counter));
+                counter+=1;
+            }
+            if (s.charAt(counter) >= 'a' && s.charAt(counter)<='z' && (counter == (s.length()-1))){
+                System.out.print(s.charAt(counter));
+                break;
+            }
+
+
+            if (s.charAt(counter) >= 'A' && s.charAt(counter)<='Z'){
+                System.out.println();
+
+            }
+
+
+            }
+
+
+            }
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
