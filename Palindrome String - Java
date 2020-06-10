@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        String s = scn.next();
+        palindrome(s);
+
+    }
+    public static void palindrome(String a){
+        boolean is = true;
+        for (int i=0;i<a.length()/2;i++){
+            if (a.charAt(i)==a.charAt(a.length()-1-i)){
+                continue;
+            }
+            else {
+                is = false;
+            }
+        }
+        if (is==true){
+            System.out.println("true");
+        }
+        else {
+            System.out.println("false");
+        }
+    }
+    }
