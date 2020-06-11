@@ -1,0 +1,41 @@
+
+//Power using Recursion
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt(); //number 
+        int x= scn.nextInt(); //power
+
+       int pn =Power(n,x);
+       System.out.println(pn);
+
+    }
+
+    public static int Power(int x,int n) {
+
+        if (n==0){
+            return 1;
+        }
+
+        int ans = Power(x,n-1);
+        int finale = x*ans;
+
+        return  finale;
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
