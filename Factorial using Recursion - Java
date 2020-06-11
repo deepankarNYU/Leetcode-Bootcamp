@@ -1,0 +1,40 @@
+
+//Factorial using Recursion
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+       int x =Factorial(5);
+       System.out.println(x);
+
+    }
+
+    public static int Factorial(int n) {
+
+        if (n==1){
+            return 1;
+        }
+
+        int ans = Factorial(n-1);
+        int finale = n *ans;
+
+        return  finale;
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
