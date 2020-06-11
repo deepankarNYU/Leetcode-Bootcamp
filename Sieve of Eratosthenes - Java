@@ -1,0 +1,42 @@
+
+//Sieve of Eratosthenes - Generate primes less than or equal to n
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] arr1 = new int[n + 1];
+        for (int i = 2; i <= n; i++) {
+            arr1[i] = i;
+        }
+        int p = 2;
+        while (p <= n) {
+            for (int m = p * p; m <= n; m += p) {
+                arr1[m] = 0;
+            }
+            p += 1;
+        }
+        for (int i = 2; i <= n; i++) {
+            if (arr1[i] != 0) {
+                System.out.println(arr1[i]);
+            }
+        }
+    }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
