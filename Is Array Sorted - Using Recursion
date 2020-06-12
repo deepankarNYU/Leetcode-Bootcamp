@@ -1,0 +1,44 @@
+
+//IsArraySorted - Using Recursion
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        int [] arr = {3,8,26,81,94,97};
+
+       Boolean ans = IsArraySorted(arr,0);
+       System.out.println(ans);
+
+    }
+
+    public static Boolean IsArraySorted(int [] arr,int si) {
+
+        if (arr.length-1 == si){
+            return true;
+        }
+
+        if (arr[si]>arr[si+1]){
+            return false;
+        }
+
+        else {
+            boolean ans = IsArraySorted(arr,si+1);
+            return ans;
+
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
