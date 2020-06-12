@@ -1,0 +1,43 @@
+package com.company;
+//LastIndex using Recursion
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        int [] arr = {3,8,26,81,94,94,9,97};
+        int number = 94;
+
+
+       int ans = firstIndex(arr,arr.length-1,number);
+       System.out.println(ans);
+
+    }
+
+    public static int firstIndex(int [] arr,int si,int n) {
+        if (si==0){
+            return -1;
+        }
+
+        if (arr[si]==n){
+            return si;
+        }
+        else {
+            int ans = firstIndex(arr,si-1,n);
+            return ans;
+        }
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
