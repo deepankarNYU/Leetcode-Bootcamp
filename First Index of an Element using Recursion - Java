@@ -1,0 +1,44 @@
+
+//FirstIndex using Recursion
+//Complexity - O(n)
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        int [] arr = {3,8,26,81,94,97};
+        int number = 7;
+
+
+       int ans = firstIndex(arr,0,number);
+       System.out.println(ans);
+
+    }
+
+    public static int firstIndex(int [] arr,int si,int n) {
+        if (si==arr.length){
+            return -1;
+        }
+
+        if (arr[si]==n){
+            return si;
+        }
+        else {
+            int ans = firstIndex(arr,si+1,n);
+            return ans;
+        }
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
