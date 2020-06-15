@@ -1,0 +1,57 @@
+
+//Get all subsequences of a string
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        String s = scn.nextLine();
+
+        ArrayList<String> Result = new ArrayList<>();
+        Result = getSubsequences(s);
+        System.out.println(Result);
+
+    }
+
+    public static ArrayList<String> getSubsequences (String str) {
+
+        if (str.length() == 0 ){
+            ArrayList<String> newString = new ArrayList<>();
+            newString.add(" ");
+            return newString;
+        }
+
+        char ch = str.charAt(0);
+
+        String ros = str.substring(1);
+
+        ArrayList <String> finalResult = new ArrayList<>();
+        ArrayList <String> RecResult = getSubsequences(ros);
+
+        for (int i=0; i<RecResult.size();i++){
+            finalResult.add(RecResult.get(i));
+            finalResult.add(ch + RecResult.get(i));
+        }
+        return finalResult;
+
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
