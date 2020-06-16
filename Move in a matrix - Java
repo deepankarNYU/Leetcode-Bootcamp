@@ -1,0 +1,63 @@
+
+//Get the number of ways to reach from top left to right bottom in a s(rows) * p(cols) grid 
+//you are allowed to move horizontally right, vertically down and diagnolly as well.
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        int s = scn.nextInt();
+        int p = scn.nextInt();
+
+        int rows = s;
+        int cols = p;
+
+        int [][] arr = new int [s][p];
+
+
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < cols; j++) {
+                arr[i][j] = 1;
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < 1; j++) {
+                arr[i][j] = 1;
+            }
+        }
+
+        for (int i = 1; i < rows; i++) {
+            for (int j = 1; j < cols; j++) {
+                arr[i][j] = arr[i][j-1] + arr[i-1][j] + arr[i-1][j-1];
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
