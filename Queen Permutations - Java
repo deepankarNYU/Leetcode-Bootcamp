@@ -1,0 +1,64 @@
+
+//2- queens problem
+//given a box of size 4, list out all the possible permutations in which we can keep two queens inside it
+//qpsf=queens placed so far
+//tq= total queens
+//backtracking problem
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        queenPermutations(new boolean[4],0,2," " );
+
+    }
+
+    public static void queenPermutations (boolean[] boxes, int qpsf, int tq, String answer ){
+
+        if (qpsf == tq){
+            System.out.println(answer);
+            return;
+        }
+
+        for (int i=0; i<boxes.length;i++){
+
+            if (boxes[i]==false){
+                boxes[i]=true;
+                queenPermutations(boxes, qpsf+1, tq , answer + "q" + qpsf + "b" +i+ " ");
+                boxes[i]=false; //backtrack
+
+            }
+        }
+
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
