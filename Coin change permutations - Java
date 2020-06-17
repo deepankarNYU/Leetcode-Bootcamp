@@ -1,0 +1,61 @@
+
+//coin-change problem - Permutations
+// denominations - [2,3,5,6]
+//amount =10
+//find out the number of ways in which you can make up an amount of 10 using infinite supply of these denominations.
+public class Main {
+
+    public static void main(String[] args) {
+
+        coinChange(new int[] {2, 3, 5, 6},10," ");
+
+    }
+
+    public static void coinChange (int[] denomination, int amount, String ans ){
+
+        if (amount==0) { //base case
+            System.out.println(ans);
+            return;
+        }
+
+
+        for (int i=0;i<denomination.length;i++){
+
+            if (amount>=denomination[i]){ //we need permutations so duplicates are also fine
+                coinChange(denomination, amount-denomination[i],ans+denomination[i]);
+            }
+
+
+        }
+
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
