@@ -1,0 +1,95 @@
+
+//Merge two sorted arrays into a single sorted array
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int[] arr = {1,3,2,5,4,9,7};
+
+        int [] answer = mergeSort(arr,0,arr.length-1);
+
+        for (int val:answer){
+            System.out.print(val);
+        }
+
+
+    }
+    public static int [] mergeTwoSortedArrays (int [] arr1, int [] arr2) {
+
+        int m = arr1.length;
+        int n = arr2.length;
+
+        int[] arr3 = new int[m + n];
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while (i < m && j < n) {
+            if (arr1[i] <= arr2[j]) {
+                arr3[k] = arr1[i];
+                i += 1;
+                k += 1;
+            } else {
+                arr3[k] = arr2[j];
+                j += 1;
+                k += 1;
+            }
+        }
+
+        if (i==arr1.length) { //if arr2 is bigger than arr1, then keep the rest of arr2 elements in arr3 as it is.
+            while (j < n) {
+                arr3[k] = arr2[j];
+                j += 1;
+                k += 1;
+            }
+        }
+        if (j==arr2.length) { //if arr1 is bigger than arr2, then keep the rest of arr1 elements in arr3 as it is.
+            while (i < m) {
+                arr3[k] = arr1[i];
+                i += 1;
+                k += 1;
+            }
+        }
+        return arr3;
+    }
+
+    public static int [] mergeSort(int []arr, int low, int high) {
+
+        if (low==high){ //base case 
+            int [] br = new int[1];
+            br[0]=arr[low];
+            return br;
+        }
+
+        int mid = (low + high)/2;
+
+        int[] arr4 = mergeSort(arr, low, mid);
+
+        int[] arr5 = mergeSort(arr, mid + 1, high);
+
+        int[] merge = mergeTwoSortedArrays(arr4,arr5);
+
+        return merge;
+    }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
