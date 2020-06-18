@@ -1,4 +1,5 @@
 //how to implement stacks using arrays 
+//All functions work in O(1) time except Display which works in O(n) time.
 
 import java.util.Stack;
 
