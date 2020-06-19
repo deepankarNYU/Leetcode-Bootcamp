@@ -1,0 +1,67 @@
+//First non repeating character from a stream of characters
+//keep inputting the character and press enter to check the non repeating character upto that point
+//terminate the program by inputting a full stop '.'
+//return a -1 if there is no non-repeating character
+
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+
+        char ch = scn.next().charAt(0);
+
+        HashMap<Character,Integer> h = new HashMap<>();
+
+        Queue<Character> q = new LinkedList<>();
+
+        while (ch != '.'){
+
+            q.add(ch);
+
+            if (h.containsKey(ch)){
+                int rv = h.get(ch);
+                rv=rv+1;
+                h.put(ch,rv);
+            }
+            else {
+                h.put(ch,1);
+            }
+
+            while (!q.isEmpty()) {
+
+                char fc = q.peek();
+
+                if (h.get(fc) == 1) {
+                    System.out.println(fc);
+                    break;
+                } else {
+                    q.poll();
+                }
+            }
+
+            if (q.isEmpty()){
+                System.out.println("-1");
+
+            }
+            ch = scn.next().charAt(0);
+        }
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
