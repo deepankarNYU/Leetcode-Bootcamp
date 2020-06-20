@@ -1,0 +1,45 @@
+
+//Dequeue - O(1)
+//Enqueue - O(n)
+//Implement a queue using 2 stacks, dequeue efficient approach
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Stack <Integer> s1 = new Stack<>(); //Queue to be reversed
+
+
+        pushOperation(s1,1);
+        pushOperation(s1,2);
+        pushOperation(s1,3);
+
+
+
+    }
+    public static void pushOperation (Stack <Integer> s1, int p){
+
+        Stack <Integer> s2 = new Stack<>(); //Helper Stack
+
+        while (!s1.isEmpty()){
+            s2.push(s1.pop());
+        }
+
+        s1.push(p);
+
+        while (!s2.isEmpty()){
+            s1.push(s2.pop());
+        }
+
+        while (!s1.isEmpty()){
+            System.out.println(s1.pop());
+        }
+
+
+    }
+
+    }
+
+
