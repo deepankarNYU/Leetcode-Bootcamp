@@ -1,0 +1,13 @@
+ public int binaryTreeHeight(Node node){
+
+
+        if (node==null){
+            return -1;
+        }
+        
+          int lheight = binaryTreeHeight(node.left) + 1;
+          int rheight = binaryTreeHeight(node.right) + 1;
+
+          int height = Math.max(lheight,rheight);
+          return height;
+    }
