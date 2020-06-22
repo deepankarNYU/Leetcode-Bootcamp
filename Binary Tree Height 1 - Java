@@ -1,0 +1,34 @@
+int lheight = 0;
+int rheight = 0;
+int height=0;
+
+    public int binaryTreeHeight(Node node){
+
+        if(node.left==null && node.right==null){
+            return 0 ;
+        }
+
+        if(node.left!=null){
+            lheight+=1;
+        }
+
+        if(node.right!=null){
+            rheight+=1;
+        }
+
+        if(node.left!=null) {
+            binaryTreeHeight(node.left);
+        }
+
+        if (node.right!=null) {
+            binaryTreeHeight(node.right);
+        }
+
+        if(lheight==0 && rheight==0){
+            System.out.println("0");
+        }
+
+        height = Math.max(lheight,rheight);
+
+        return height;
+    }
