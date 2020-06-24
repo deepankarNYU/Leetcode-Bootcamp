@@ -1,0 +1,41 @@
+
+//Character with maximum frequency in a string
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        HashMap<Character, Integer> maxFrequency = new HashMap<>();
+
+        Scanner scn = new Scanner(System.in);
+        String str = scn.next();
+
+        for (int i=0;i<str.length();i++){
+            if(maxFrequency.containsKey(str.charAt(i))){
+                int x = maxFrequency.get(str.charAt(i));
+                x+=1;
+                maxFrequency.put(str.charAt(i),x);
+            }
+            else {
+                maxFrequency.put(str.charAt(i),1);
+            }
+        }
+
+        int maxValue=0;
+        for(int val:maxFrequency.values()){
+            if (val>maxValue){
+                maxValue=val;
+            }
+        }
+
+        for(char ch:maxFrequency.keySet()){
+           if(maxFrequency.get(ch)==maxValue) {
+                System.out.println(ch);
+            }
+        }
+    }
+}
+
+
