@@ -1,0 +1,59 @@
+
+//Dictionary Basics 
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        HashMap<String, Integer> country = new HashMap<>();
+
+        country.put("India",100);
+        country.put("USA",200);
+        country.put("Sweded",300);
+        country.put("UK",400);
+        country.put("Russia",500);
+
+        //Make a set of keys in the dictionary
+        Set<String> countries = country.keySet();
+        for(String str:countries){
+            System.out.println(str);
+        }
+
+        //Make a collection of values in the dictionary
+        Collection<Integer> population = country.values();
+        for (int i:population){
+            System.out.println(i);
+        }
+
+        //make a set of every key-value pair in the dictionary
+        Set<Map.Entry<String,Integer>> EntrySet = country.entrySet();
+        for (Map.Entry<String,Integer> entry: EntrySet){
+            System.out.println(entry.getKey() + "=>" + entry.getValue());
+        }
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
