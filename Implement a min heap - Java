@@ -1,0 +1,37 @@
+//Implement a min Heap 
+
+import java.util.ArrayList;
+
+public class HeapClass {
+
+    ArrayList<Integer> h1 = new ArrayList<>();
+    int ci= h1.size()-1;
+
+    public void addinHeap(int item){
+        h1.add(item);
+        heapify(h1.size()-1);
+    }
+
+    private void heapify(int ci) {
+
+        int pi = (ci-1)/2; //Get the parent's index
+
+        if(h1.get(pi)>h1.get(ci)){ //if parents value is greater than child, swap , then call for recursive function at the parent index
+            swap(ci,pi);
+            heapify(pi);
+        }
+
+    }
+
+    private void swap(int i, int j) { //swap function in arraylist
+        int ith = h1.get(i);
+        int jth = h1.get(j);
+
+        h1.set(i,jth);
+        h1.set(j,ith);
+    }
+
+    public void display(){
+        System.out.println(h1);
+    }
+}
