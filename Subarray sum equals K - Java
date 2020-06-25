@@ -1,0 +1,18 @@
+public static int subArraySumK(int[] arr,int k){
+
+            HashMap<Integer,Integer> h1 = new HashMap<>();
+            int presum=0;
+            int count=0;
+            h1.put(0,1);
+
+            for(int i=0;i<arr.length;i++){
+                presum=presum+arr[i];
+
+                if (h1.containsKey(presum-k)){
+                    count+=h1.get(presum-k);
+                }
+                h1.put(presum,h1.getOrDefault(presum,0)+1);
+
+            }
+        return count;
+        }
