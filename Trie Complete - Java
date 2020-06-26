@@ -1,0 +1,123 @@
+//Implement adding new words, searching for words and deletion in a trie 
+//function to create a dictionary/contact list etc etc 
+
+import java.util.HashMap;
+
+public class Trie {
+
+    private class Node {
+        char data;
+        HashMap<Character, Node> children;
+        boolean isTerminal;
+
+        Node(char data, boolean isTerminal) { //trie node constructor
+            this.data = data;
+            this.isTerminal = isTerminal;
+            this.children = new HashMap<Character, Node>();
+        }
+    }
+
+    private int numWords;
+    private Node root;
+
+    Trie() { //trie contructor
+        this.root = new Node('\0', false);
+        this.numWords = 0;
+    }
+
+    public void addWord(String word){ //this function calls function to add a word in your trie data structure
+        this.addWord(this.root,word);
+    }
+
+    private void addWord(Node Parent, String word){ //function to add a word in your trie data structure
+
+        if(word.length()==0){
+            if(Parent.isTerminal){
+                //word already present
+            }
+            else {
+                Parent.isTerminal=true;
+                this.numWords++;
+            }
+            return;
+        }
+
+        char ch = word.charAt(0);
+        String ros = word.substring(1);
+
+        Node child = Parent.children.get(ch);
+
+        if (child==null){
+            child = new Node(ch,false);
+            Parent.children.put(ch,child);
+        }
+        this.addWord(child,ros);
+    }
+
+    public int NumWords(){ //function to return the total number of words
+        return this.numWords;
+    }
+
+
+    public boolean searchTrie (String word){ //function to call for search in a trie
+       return this.searchTrie(this.root,word) ;
+
+    }
+
+    private boolean searchTrie (Node parent, String word) { //function to search in a trie
+
+
+        if (word.length() == 0) {
+            if (parent.isTerminal) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        char ch = word.charAt(0);
+        String ros = word.substring(1);
+
+        Node child = parent.children.get(ch);
+
+        if (child == null) {
+            return false;
+        }
+        return this.searchTrie(child,ros);
+
+}
+
+public void Delete(String word){ //function to call deletion in a trie
+        this.Delete(this.root,word);
+}
+
+private void Delete(Node parent, String word){ //function to delete a word in a trie
+
+        if(word.length()==0) {
+            if (parent.isTerminal) {
+                parent.isTerminal = false;
+                this.numWords--;
+            } else {
+                //word is a part of some other wordd
+            }
+            return;
+        }
+
+        char ch = word.charAt(0);
+        String ros = word.substring(1);
+
+        Node child = parent.children.get(ch);
+
+        if(child==null){
+            return;
+        }
+
+        this.Delete(child,ros);
+
+        if (!child.isTerminal && child.children.size()==0){
+            parent.children.remove(ch);
+        }
+
+}
+
+}
