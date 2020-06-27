@@ -1,0 +1,123 @@
+
+import java.util.HashMap;
+
+class Graph {
+
+    private class GraphNode{
+        HashMap<String,Integer> neighbours = new HashMap<>();
+    }
+
+    HashMap <String,GraphNode> Vertices = new HashMap<>();
+
+    public int numberofVertex(){
+        return this.Vertices.size();
+    }
+
+    public boolean containsVertex(String str){
+        if(this.Vertices.containsKey(str)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public void addVertex (String str){
+
+        GraphNode vertex = new GraphNode();
+        this.Vertices.put(str,vertex);
+
+    }
+
+    public void removeVertex(String str){
+
+        GraphNode n1 = this.Vertices.get(str);
+
+        for (String s:n1.neighbours.keySet()){
+             GraphNode nbr = this.Vertices.get(s);
+             nbr.neighbours.remove(str);
+        }
+
+        this.Vertices.remove(str);
+
+    }
+
+    public int numEdges(){
+        int total=0;
+        for (String str: Vertices.keySet()){
+            GraphNode toAdd = Vertices.get(str);
+            int addSize = toAdd.neighbours.size();
+            total+=addSize;
+        }
+        return total/2;
+    }
+
+    public boolean containsEdge(String s1, String s2){
+
+        if (this.Vertices.containsKey(s1)){
+            GraphNode g1 = Vertices.get(s1);
+            if(g1.neighbours.containsKey(s2)){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
+    public void addEdge(String s1, String s2 , int cost) {
+
+        GraphNode n1 = this.Vertices.get(s1);
+        GraphNode n2 = this.Vertices.get(s2);
+
+        if (n1==null || n2==null || n1.neighbours.containsKey(n2)){
+            return;
+        }
+
+            n1.neighbours.put(s2,cost);
+            n2.neighbours.put(s1,cost);
+
+
+    }
+
+    public void removeEdge(String s1, String s2){
+
+        GraphNode n1 = this.Vertices.get(s1);
+        GraphNode n2 = this.Vertices.get(s2);
+
+        if (n1==null || n2==null || !n1.neighbours.containsKey(n2)) {
+            return;
+        }
+
+        n1.neighbours.remove(s2);
+        n2.neighbours.remove(s1);
+
+    }
+
+    public void displayGraph(){
+
+        for (String str:this.Vertices.keySet()){
+            GraphNode n1 = this.Vertices.get(str);
+            System.out.println(str + ":" + n1.neighbours);
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+        Graph g1 = new Graph();
+        g1.addVertex("A");
+        g1.addVertex("B");
+        g1.addEdge("A","B",2);
+        g1.addVertex("C");
+        g1.addEdge("A","C",5);
+
+
+        g1.displayGraph();
+       
+    }
+}
+
