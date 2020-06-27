@@ -88,7 +88,7 @@ class Graph {
         GraphNode n1 = this.Vertices.get(s1);
         GraphNode n2 = this.Vertices.get(s2);
 
-        if (n1==null || n2==null || !n1.neighbours.containsKey(n2)) {
+        if (n1==null || n2==null || !n1.neighbours.containsKey(s2)) {
             return;
         }
 
