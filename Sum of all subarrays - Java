@@ -1,0 +1,37 @@
+
+//sum of all subarrays
+
+import java.util.*;
+
+class Main {
+
+    public static void main(String[] args) {
+
+        //Solution 1 - O(n^2)
+        int []  arr = {1,2,3,4};
+        int result=0;
+        for (int i=0; i<arr.length;i++){
+
+            int temp=0;
+            for (int j=i;j<arr.length;j++){
+
+                temp+=arr[j];
+                result += temp;
+            }
+
+        }
+        System.out.println(result);
+
+        //Solution 2 - O(n)
+
+        int sum=0;
+        int n = arr.length;
+        for (int i=0;i<n;i++){
+            sum+= (n-i)*(i+1)*arr[i];
+        }
+        System.out.println(sum);
+
+
+    }
+
+}
