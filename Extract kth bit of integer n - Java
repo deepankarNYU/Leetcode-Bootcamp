@@ -1,0 +1,30 @@
+//Extract the kth bit of n
+
+class bitMasking {
+
+    public static int extractBit(int n,int k){
+
+        int x = 1;
+        
+        //Creating a mask 
+        for (int i=0;i<k-1;i++){
+            x=x<<1;
+        }
+
+        int ans = n&x;
+        
+        //right shifting the product to get the ith bit
+        for (int i=0;i<k-1;i++){
+            ans=ans>>1;
+        }
+        return ans;
+
+    }
+
+    public static void main (String [] args){
+
+        System.out.println(extractBit(8,4));
+
+
+    }
+}
