@@ -1,0 +1,26 @@
+//Change the ith bit to 0 - Reset a bit 
+
+class bitMasking {
+
+ 
+    public static int resetIthBit (int n, int k){
+
+        int ans = 1;
+
+        for(int i=0;i<k-1;i++){
+            ans = ans<<1;
+        }
+
+        ans = (~ans);
+
+        ans = n & ans;
+
+        return ans;
+    }
+
+    public static void main (String [] args){
+
+        System.out.println(resetIthBit(7,3));
+
+    }
+}
