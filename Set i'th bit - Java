@@ -1,0 +1,22 @@
+class bitMasking {
+
+
+    public static int setIthBit (int n, int k){
+
+        int ans = 1;
+
+        for (int i=0;i<k-1;i++){
+            ans = ans <<1;
+        }
+
+        int final_answer = n | ans;
+
+        return final_answer;
+    }
+
+    public static void main (String [] args){
+
+        System.out.println(setIthBit(8,3));
+
+    }
+}
