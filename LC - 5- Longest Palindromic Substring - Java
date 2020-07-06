@@ -1,0 +1,38 @@
+class Solution {
+    public String longestPalindrome(String s) {
+        if (s==null || s.length()<1) {
+            return "";
+        }
+        
+        int beg=0;
+        int end=0;
+        for (int i=0;i<s.length();i++){
+            int l1 = palindrome (s,i,i);
+            int l2 = palindrome (s,i,i+1);
+            int maxlen = Math.max(l1,l2);
+            
+            if(maxlen>end-beg){
+                beg = i-(maxlen-1)/2;
+                end = i+ maxlen/2;
+            }
+            
+        }
+        return s.substring(beg,end+1);
+        
+    }
+    
+    public int palindrome(String s,int m,int n){
+        
+        int left= m;
+        int right =n;
+        
+        while (left >=0 && right<s.length() && s.charAt(left)==s.charAt(right)){
+            left-=1;
+            right+=1;
+        }
+        
+        return right-left-1;
+        
+        
+    }
+}
